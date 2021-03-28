@@ -1,0 +1,9 @@
+<img src="https://www.bungie.net<%= e.UrlImgEquipment %>"
+<% if(e.IsEquipped) { %>
+  class="iconEquipment tooltipped iconEquipmentEquipped"
+<% } else { %>
+  class="iconEquipment tooltipped"
+<% } %>
+data-html="true"
+data-position="top"
+data-tooltip=" <%= e.NameEquipment %> / <%= e.LightEquipment %> <i class='tiny material-icons'>flare</i> ">

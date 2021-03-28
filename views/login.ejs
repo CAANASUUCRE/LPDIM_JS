@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<%- include('layout/head') -%>
+
+<body>
+  <div style="width:100%;height:100%;position:relative;overflow:hidden;">
+    <div class="background" data-speed="2"></div>
+
+    <div class="divForm">
+      <h3>Connexion à un personnage</h3>
+      <form class="" action="/login" method="post">
+        <div class="input-field col s12">
+          <input type="text" class="inputD2" name="nameCharacter" id="nameCharacter">
+          <label for="nameCharacter" style="color:white;">Nom du personnage</label>
+        </div>
+        <% if (error != null) { %>
+          <p class="red-text"><b><%= error %></b></p>
+        <% } %>
+        <input type="submit" class="buttonD2" name="" value="Valider">
+        <a href="/" class="buttonD2">Retour</a>
+      </form>
+    </div>
+  </div>
+</body>
+
+<%- include('layout/script') -%>
+
+</html>

@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html>
+
+<%- include('layout/head') -%>
+
+<body>
+  <div style="width:100%;height:100%;position:relative;overflow:hidden;">
+    <div class="background" data-speed="2"></div>
+
+    <div class="divInfoCharacter center">
+      <div style="margin-top:25px;">
+        <h3 style="display:inline;">
+          <%= user.nameCharacter %>
+          <span class="blue-text tooltipped" data-html="true" data-position="bottom" data-tooltip="Cela représente la moyenne de puissance de vos équipements">
+            <%= user.lightCharacter %>
+          </span>
+        </h3>
+        <i class="small material-icons blue-text">flare</i>
+      </div>
+      <h4><%= user.classCharacter %> / <%= user.raceCharacter %> / <%= user.genderCharacter %></h4>
+    </div>
+
+    <div class="divWeapon">
+      <div class="primaryWeapon">
+        <% equipements.forEach(function(e) {
+            if (e.TypeEquipment == 'Cinétique') {%>
+
+              <img src="https://www.bungie.net<%= e.UrlImgEquipment %>"
+
+                <% if(e.IsEquipped) { %>
+                  class="iconEquipment tooltipped iconEquipmentEquipped hvr-grow-shadow"
+                <% } else if(!e.IsEquipped){ %>
+                  <% if(e.IDEquipment == newItem) { %>
+                    class="iconEquipment tooltipped dropdown-trigger pointerDisp newItem hvr-grow-shadow"
+                  <% } else {%>
+                    class="iconEquipment tooltipped dropdown-trigger pointerDisp hvr-grow-shadow"
+                  <% } %>
+                  data-target='dropdown<%= e.HashEquipment %>'
+                <% } %>
+
+              data-html="true"
+              data-position="top"
+              data-tooltip=" <%= e.NameEquipment %> / <%= e.LightEquipment %> <i class='tiny material-icons'>flare</i> ">
+
+              <% if(!e.IsEquipped) { %>
+
+                <ul id='dropdown<%= e.HashEquipment %>' class='dropdown-content'>
+                  <li><a href="/equipItem/<%= e.IDEquipment %>/<%= e.TypeEquipment %>">Equiper</a></li>
+                  <li><a href="/deleteEquipment/<%= e.IDEquipment %>">Supprimer</a></li>
+                </ul>
+
+              <% } %>
+
+        <% }}); %>
+      </div>
+      <div class="secondaryWeapon">
+        <% equipements.forEach(function(e) {
+            if (e.TypeEquipment == 'Énergétique') {%>
+
+              <img src="https://www.bungie.net<%= e.UrlImgEquipment %>"
+
+              <% if(e.IsEquipped) { %>
+                class="iconEquipment tooltipped iconEquipmentEquipped hvr-grow-shadow"
+              <% } else if(!e.IsEquipped){ %>
+                <% if(e.IDEquipment == newItem) { %>
+                  class="iconEquipment tooltipped dropdown-trigger pointerDisp newItem hvr-grow-shadow"
+                <% } else {%>
+                  class="iconEquipment tooltipped dropdown-trigger pointerDisp hvr-grow-shadow"
+                <% } %>
+                data-target='dropdown<%= e.HashEquipment %>'
+              <% } %>
+
+              data-html="true"
+              data-position="top"
+              data-tooltip=" <%= e.NameEquipment %> / <%= e.LightEquipment %> <i class='tiny material-icons'>flare</i> ">
+
+              <% if(!e.IsEquipped) { %>
+
+                <ul id='dropdown<%= e.HashEquipment %>' class='dropdown-content'>
+                  <li><a href="/equipItem/<%= e.IDEquipment %>/<%= e.TypeEquipment %>">Equiper</a></li>
+                  <li><a href="/deleteEquipment/<%= e.IDEquipment %>">Supprimer</a></li>
+                </ul>
+
+              <% } %>
+
+        <% }}); %>
+      </div>
+      <div class="heavyWeapon">
+        <% equipements.forEach(function(e) {
+            if (e.TypeEquipment == 'Puissante') {%>
+
+              <img src="https://www.bungie.net<%= e.UrlImgEquipment %>"
+
+              <% if(e.IsEquipped) { %>
+                class="iconEquipment tooltipped iconEquipmentEquipped hvr-grow-shadow"
+              <% } else if(!e.IsEquipped){ %>
+                <% if(e.IDEquipment == newItem) { %>
+                  class="iconEquipment tooltipped dropdown-trigger pointerDisp newItem hvr-grow-shadow"
+                <% } else {%>
+                  class="iconEquipment tooltipped dropdown-trigger pointerDisp hvr-grow-shadow"
+                <% } %>
+                data-target='dropdown<%= e.HashEquipment %>'
+              <% } %>
+
+              data-html="true"
+              data-position="top"
+              data-tooltip=" <%= e.NameEquipment %> / <%= e.LightEquipment %> <i class='tiny material-icons'>flare</i> ">
+
+              <% if(!e.IsEquipped) { %>
+
+                <ul id='dropdown<%= e.HashEquipment %>' class='dropdown-content'>
+                  <li><a href="/equipItem/<%= e.IDEquipment %>/<%= e.TypeEquipment %>">Equiper</a></li>
+                  <li><a href="/deleteEquipment/<%= e.IDEquipment %>">Supprimer</a></li>
+                </ul>
+
+              <% } %>
+
+        <% }}); %>
+      </div>
+    </div>
+
+
+    <div class="divArmors">
+      <div class="headEquipment">
+        <% equipements.forEach(function(e) {
+            if (e.TypeEquipment == 'armor_type.head') {%>
+
+              <img src="https://www.bungie.net<%= e.UrlImgEquipment %>"
+
+              <% if(e.IsEquipped) { %>
+                class="iconEquipment tooltipped iconEquipmentEquipped hvr-grow-shadow"
+              <% } else if(!e.IsEquipped){ %>
+                <% if(e.IDEquipment == newItem) { %>
+                  class="iconEquipment tooltipped dropdown-trigger pointerDisp newItem hvr-grow-shadow"
+                <% } else {%>
+                  class="iconEquipment tooltipped dropdown-trigger pointerDisp hvr-grow-shadow"
+                <% } %>
+                data-target='dropdown<%= e.HashEquipment %>'
+              <% } %>
+
+              data-html="true"
+              data-position="top"
+              data-tooltip=" <%= e.NameEquipment %> / <%= e.LightEquipment %> <i class='tiny material-icons'>flare</i> ">
+
+              <% if(!e.IsEquipped) { %>
+
+                <ul id='dropdown<%= e.HashEquipment %>' class='dropdown-content'>
+                  <li><a href="/equipItem/<%= e.IDEquipment %>/<%= e.TypeEquipment %>">Equiper</a></li>
+                  <li><a href="/deleteEquipment/<%= e.IDEquipment %>">Supprimer</a></li>
+                </ul>
+
+              <% } %>
+
+        <% }}); %>
+      </div>
+      <div class="armsEquipment">
+        <% equipements.forEach(function(e) {
+            if (e.TypeEquipment == 'armor_type.arms') {%>
+
+              <img src="https://www.bungie.net<%= e.UrlImgEquipment %>"
+
+              <% if(e.IsEquipped) { %>
+                class="iconEquipment tooltipped iconEquipmentEquipped hvr-grow-shadow"
+              <% } else if(!e.IsEquipped){ %>
+                <% if(e.IDEquipment == newItem) { %>
+                  class="iconEquipment tooltipped dropdown-trigger pointerDisp newItem hvr-grow-shadow"
+                <% } else {%>
+                  class="iconEquipment tooltipped dropdown-trigger pointerDisp hvr-grow-shadow"
+                <% } %>
+                data-target='dropdown<%= e.HashEquipment %>'
+              <% } %>
+
+              data-html="true"
+              data-position="top"
+              data-tooltip=" <%= e.NameEquipment %> / <%= e.LightEquipment %> <i class='tiny material-icons'>flare</i> ">
+
+              <% if(!e.IsEquipped) { %>
+
+                <ul id='dropdown<%= e.HashEquipment %>' class='dropdown-content'>
+                  <li><a href="/equipItem/<%= e.IDEquipment %>/<%= e.TypeEquipment %>">Equiper</a></li>
+                  <li><a href="/deleteEquipment/<%= e.IDEquipment %>">Supprimer</a></li>
+                </ul>
+
+              <% } %>
+
+        <% }}); %>
+      </div>
+      <div class="chestEquipment">
+        <% equipements.forEach(function(e) {
+          if (e.TypeEquipment == 'armor_type.chest') {%>
+
+            <img src="https://www.bungie.net<%= e.UrlImgEquipment %>"
+
+            <% if(e.IsEquipped) { %>
+              class="iconEquipment tooltipped iconEquipmentEquipped hvr-grow-shadow"
+            <% } else if(!e.IsEquipped){ %>
+              <% if(e.IDEquipment == newItem) { %>
+                class="iconEquipment tooltipped dropdown-trigger pointerDisp newItem hvr-grow-shadow"
+              <% } else {%>
+                class="iconEquipment tooltipped dropdown-trigger pointerDisp hvr-grow-shadow"
+              <% } %>
+              data-target='dropdown<%= e.HashEquipment %>'
+            <% } %>
+
+            data-html="true"
+            data-position="top"
+            data-tooltip=" <%= e.NameEquipment %> / <%= e.LightEquipment %> <i class='tiny material-icons'>flare</i> ">
+
+            <% if(!e.IsEquipped) { %>
+
+              <ul id='dropdown<%= e.HashEquipment %>' class='dropdown-content'>
+                <li><a href="/equipItem/<%= e.IDEquipment %>/<%= e.TypeEquipment %>">Equiper</a></li>
+                <li><a href="/deleteEquipment/<%= e.IDEquipment %>">Supprimer</a></li>
+              </ul>
+
+            <% } %>
+
+        <% }}); %>
+      </div>
+      <div class="legsEquipment">
+        <% equipements.forEach(function(e) {
+          if (e.TypeEquipment == 'armor_type.legs') {%>
+
+            <img src="https://www.bungie.net<%= e.UrlImgEquipment %>"
+
+            <% if(e.IsEquipped) { %>
+              class="iconEquipment tooltipped iconEquipmentEquipped hvr-grow-shadow"
+            <% } else if(!e.IsEquipped){ %>
+              <% if(e.IDEquipment == newItem) { %>
+                class="iconEquipment tooltipped dropdown-trigger pointerDisp newItem hvr-grow-shadow"
+              <% } else {%>
+                class="iconEquipment tooltipped dropdown-trigger pointerDisp hvr-grow-shadow"
+              <% } %>
+              data-target='dropdown<%= e.HashEquipment %>'
+            <% } %>
+
+            data-html="true"
+            data-position="top"
+            data-tooltip=" <%= e.NameEquipment %> / <%= e.LightEquipment %> <i class='tiny material-icons'>flare</i> ">
+
+            <% if(!e.IsEquipped) { %>
+
+              <ul id='dropdown<%= e.HashEquipment %>' class='dropdown-content'>
+                <li><a href="/equipItem/<%= e.IDEquipment %>/<%= e.TypeEquipment %>">Equiper</a></li>
+                <li><a href="/deleteEquipment/<%= e.IDEquipment %>">Supprimer</a></li>
+              </ul>
+
+            <% } %>
+
+        <% }}); %>
+      </div>
+      <div class="classEquipment">
+        <% equipements.forEach(function(e) {
+          if (e.TypeEquipment == 'armor_type.class') {%>
+
+            <img src="https://www.bungie.net<%= e.UrlImgEquipment %>"
+
+            <% if(e.IsEquipped) { %>
+              class="iconEquipment tooltipped iconEquipmentEquipped hvr-grow-shadow"
+            <% } else if(!e.IsEquipped){ %>
+              <% if(e.IDEquipment == newItem) { %>
+                class="iconEquipment tooltipped dropdown-trigger pointerDisp newItem hvr-grow-shadow"
+              <% } else {%>
+                class="iconEquipment tooltipped dropdown-trigger pointerDisp hvr-grow-shadow"
+              <% } %>
+              data-target='dropdown<%= e.HashEquipment %>'
+            <% } %>
+
+            data-html="true"
+            data-position="top"
+            data-tooltip=" <%= e.NameEquipment %> / <%= e.LightEquipment %> <i class='tiny material-icons'>flare</i> ">
+
+            <% if(!e.IsEquipped) { %>
+
+              <ul id='dropdown<%= e.HashEquipment %>' class='dropdown-content'>
+                <li><a href="/equipItem/<%= e.IDEquipment %>/<%= e.TypeEquipment %>">Equiper</a></li>
+                <li><a href="/deleteEquipment/<%= e.IDEquipment %>">Supprimer</a></li>
+              </ul>
+
+            <% } %>
+
+        <% }}); %>
+      </div>
+    </div>
+
+    <div class="helpDiv">
+      <p>Votre lumière est votre niveau de puissance global. Augmentez là avec des équipements</p>
+      <p>Lancez des assauts pour tenter de gagner des équipements. Votre inventaire est limité (4 places par type)</p>
+      <p>Plus l'écart de lumière entre l'assaut et votre personnage est élévé, moins vous avez de chance de gagner</p>
+      <p>Plus l'assaut est dur, plus l'équipement gagné sera puissant</p>
+    </div>
+
+
+    <div class="divButtonD2">
+      <a href="/assault" class="buttonD2">Lancer un assaut</a>
+
+      <% if (powerAssault) { %>
+        <form action="/assault" method="post" style="display:inline;">
+          <input type="hidden" name="powerAssault" value="<%= powerAssault %>">
+          <input type="submit" class="buttonD2" value="Retenter l'assaut <%= powerAssault %>">
+        </form>
+      <% } %>
+    </div>
+
+</body>
+
+
+<%- include('layout/script') -%>
+<script type="text/javascript" src="/javascripts/tooltip.js"></script>
+<script type="text/javascript" src="/javascripts/dropmenu.js"></script>
+
+<% if (win === true) { %>
+  <script>
+    M.toast({html: 'Vous avez réussi votre assaut',classes:'green'})
+  </script>
+<% } else if (win === false) { %>
+  <script>
+    M.toast({html: 'Vous avez échoué votre assaut',classes:'red'})
+  </script>
+<% } %>
+
+<% if (advertInventory === true) { %>
+  <script>
+    M.toast({html: 'Inventaire plein, loot supprimé',classes:'red'})
+  </script>
+<% } %>
+
+
+
+
+
+</html>
