@@ -12,8 +12,8 @@ router.get('/:id/:type', function (req, res, next) {
   req.session.newItem = null;
 
   //On enlève l'item équipé
-  let unequipItem = "UPDATE DestinyEquipment SET IsEquipped = 0 WHERE IsEquipped = 1 AND TypeEquipment LIKE ?";
-  db.run(unequipItem, typeItem , err => {
+  let unequipItem = "UPDATE DestinyEquipment SET IsEquipped = 0 WHERE IsEquipped = 1 AND TypeEquipment LIKE ? AND IDCharacter = ?";
+  db.run(unequipItem, [typeItem,req.session.idCharacter] , err => {
     console.log('1err ' + err);
 
     //On équiple l'item souhaité
@@ -21,8 +21,8 @@ router.get('/:id/:type', function (req, res, next) {
     db.run(equipNewItem, idItem , err => {
 
       //On select tous les équipement équipés pour faire la moyenne de puissance
-      let selectAllEquiped = "SELECT * FROM DestinyEquipment WHERE IsEquipped = 1"
-      db.all(selectAllEquiped, [] , (err,rows) => {
+      let selectAllEquiped = "SELECT * FROM DestinyEquipment WHERE IsEquipped = 1 AND IDCharacter = ?"
+      db.all(selectAllEquiped, req.session.idCharacter , (err,rows) => {
 
         let tabVal = []
         rows.forEach(e => {
