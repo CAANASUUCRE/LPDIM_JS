@@ -1,0 +1,249 @@
+@font-face {
+  font-family: D2Font;
+  src: url(../font/D2Font.ttf);
+}
+
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: D2Font !important;
+  color: white;
+}
+
+.background {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  background-image: url("../images/Destiny2-Background.jpg");
+  height: 120%;
+  width: 120%;
+  z-index: -10;
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
+
+.greyDiv {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 10;
+  background-color: #323639;
+  opacity: 0;
+  visibility: hidden;
+
+  animation: 2s ease disparition;
+}
+
+.destinyLogo {
+  position: absolute;
+  left: 50%;
+  top: 40%;
+  transform: translate(-50%,-50%);
+  opacity: 1;
+
+  animation: 4s ease  apparition;
+}
+
+.divButtonD2 {
+  position: absolute;
+  left: 50%;
+  bottom: 5%;
+  transform: translate(-50%,-50%);
+  /* animation: 5s ease  apparitionDivButton; */
+}
+
+.animateDivHome{
+  animation: 5s ease  apparitionDivButton;
+}
+
+.buttonD2 {
+  font-size: 1.5em;
+  border: solid 2px white;
+  color: white;
+  background-color: rgba(0, 0, 0, .2);
+  padding: 10px;
+  appearance:button;
+
+  transition: all 0.5s ease;
+  margin: auto 10px;
+  cursor:pointer;
+}
+
+.divForm {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  background-color: rgba(0, 0, 0, .2);
+  padding: 20px;
+  border: solid 2px white;
+}
+
+input[type=text]:not(.browser-default):focus:not([readonly]) {
+  box-shadow: inherit !important;
+}
+
+[type="radio"]:not(:checked)+span:before, [type="radio"]:not(:checked)+span:after {
+  border: 2px solid white !important;
+}
+
+[type="radio"]:checked+span:after, [type="radio"].with-gap:checked+span:before, [type="radio"].with-gap:checked+span:after {
+  border: 2px solid white !important;
+}
+
+[type="radio"]:checked+span:after, [type="radio"].with-gap:checked+span:after {
+    background-color: white !important;
+}
+
+.select-wrapper .caret {
+    fill: rgba(255,255,255,0.87) !important;
+}
+
+.select-wrapper input.select-dropdown {
+    border-bottom: 2px solid white !important;
+}
+
+.dropdown-content li>span {
+    color: black !important;
+}
+
+.select-dropdown.dropdown-trigger {
+    color: white !important;
+}
+
+label {
+  color: white !important;
+}
+
+.inputD2 {
+  color: white;
+  border-bottom: solid 2px white !important;
+  background-color: rgba(0, 0, 0, .2) !important;
+  padding: 0px 4px 0px 4px !important;
+}
+
+.buttonD2:hover {
+  background-color: rgba(255, 255, 255, .4);
+}
+
+.divArmors , .divWeapon {
+  position: absolute;
+  top: 20%;
+}
+
+.divWeapon {
+  right: 60%;
+  /* transform: translateX(-50%); */
+}
+
+.divArmors {
+  left: 60%
+  /* left: 70%;
+  transform: translateX(-50%); */
+}
+
+.divArmors div{
+  height: 122px;
+}
+
+.primaryWeapon , .secondaryWeapon , .heavyWeapon {
+  display: flex !important;
+  flex-direction:row-reverse;
+}
+
+.iconEquipment {
+  /* position: absolute; */
+  padding:5px;
+  border:solid 3px white;
+  background-color:rgba(0, 0, 0, .2);
+  margin: 5px;
+}
+
+.iconEquipmentEquipped {
+  border:solid 3px #ffeb3b;
+}
+
+.newItem{
+  border:solid 3px #4caf50 !important;
+}
+
+
+.helpDiv {
+  position: absolute;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, .2);
+  width: 350px;
+  border: solid 2px white;
+  top: 100%;
+  transform: translateY(-100%);
+}
+
+.divAssault {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+.divAssaultButton div {
+  position: relative;
+}
+
+.topSide {
+  top: 0;
+}
+.rightSide {
+  right: 0;
+}
+.bottomSide {
+  bottom: 0;
+}
+.leftSide {
+  left: 0;
+}
+
+.dropdown-content li>a {
+  color: black !important;
+}
+
+.hvr-grow-shadow {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: box-shadow, transform;
+  transition-property: box-shadow, transform;
+}
+.hvr-grow-shadow:hover, .hvr-grow-shadow:focus, .hvr-grow-shadow:active {
+  box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.5);
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+
+@keyframes disparition {
+  0% {visibility:visible;opacity: 1}
+  100% {visibility: hidden;opacity: 0}
+}
+
+@keyframes apparition {
+  0% {opacity:0}
+  50% {opacity: 0}
+  100% {opacity: 1}
+}
+
+@keyframes apparitionDivButton {
+  0% {bottom: -10%;}
+  50% {bottom: -10%;}
+  100% {bottom: 5%;}
+}

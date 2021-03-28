@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<%- include('layout/head') -%>
+
+<body>
+  <div style="width:100%;height:100%;position:relative;overflow:hidden;">
+    <div class="background" data-speed="2"></div>
+  </div>
+
+  <div class="divForm">
+    <h3>Choix d'un assaut</h3>
+    <form class="" action="/assault" method="post">
+      <h5>Niveau de puissance</h5>
+      <div class="input-field col s12">
+        <select name="powerAssault">
+          <option value="" disabled selected>Choisissez le niveau de puissance</option>
+          <option value="1150">1150</option>
+          <option value="1200">1200</option>
+          <option value="1250">1250</option>
+          <option value="1300">1300</option>
+        </select>
+      </div>
+      <% if (error != null) { %>
+        <p class="red-text"><b><%= error %></b></p>
+      <% } %>
+      <input type="submit" class="buttonD2" name="" value="Valider">
+      <a href="/character" class="buttonD2">Retour</a>
+    </form>
+  </div>
+
+</body>
+
+<%- include('layout/script') -%>
+<script type="text/javascript" src="/javascripts/selectForm.js"></script>
+
+
+</html>
