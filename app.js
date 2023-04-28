@@ -29,6 +29,9 @@ app.use(session({
   cookie: { secure: false }
 }))
 
+var listener = app.listen(3100, function(){
+    console.log('Listening on port ' + listener.address().port);
+});
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
