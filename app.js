@@ -35,7 +35,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-var listener = app.listen(8888, function(){
+var listener = app.listen(3100, function(){
     console.log('Listening on port ' + listener.address().port);
 });
 app.use('/', indexRouter);
